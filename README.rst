@@ -47,19 +47,10 @@ Interested? See the `getting started`_ section for more details.
 
 Getting Started:
 ================
-Install StarCluster using `easy_install`::
+Install StarCluster from development::
 
-    $ easy_install StarCluster
-
-or using `pip`::
-
-    $ pip install StarCluster
-
-or manually::
-
-    $ (Download StarCluster from http://star.mit.edu/cluster/downloads.html)
-    $ tar xvzf starcluster-X.X.X.tar.gz  (where x.x.x is a version number)
-    $ cd starcluster-X.X.X
+    $ git clone https://github.com/ONSBR/StarCluster.git 
+    $ cd StarCluster
     $ sudo python setup.py install
 
 After the software has been installed, the next step is to setup the
