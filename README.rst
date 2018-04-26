@@ -51,7 +51,7 @@ Preparing Ubuntu machine for installation::
 
     $ sudo apt-get update -y && sudo apt-get install -y build-essential libssl-dev libffi-dev libsodium-dev python-dev python-pip
 
-Install StarCluster from development::
+Install this customized StarCluster version::
 
     $ git clone https://github.com/ONSBR/StarCluster.git 
     $ cd StarCluster
