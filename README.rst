@@ -47,6 +47,10 @@ Interested? See the `getting started`_ section for more details.
 
 Getting Started:
 ================
+Preparing Ubuntu machine for installation::
+
+    $ sudo apt-get installl -y && sudo apt-get install -y build-essential libssl-dev libffi-dev libsodium-dev python-dev python-pip
+
 Install StarCluster from development::
 
     $ git clone https://github.com/ONSBR/StarCluster.git 
