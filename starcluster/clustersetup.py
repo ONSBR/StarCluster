@@ -286,15 +286,19 @@ class DefaultClusterSetup(ClusterSetup):
                 log.error("missing required settings for vol %s" % vol)
                 continue
             if device not in devices and device.startswith('/dev/sd'):
-                # check for "correct" device in unpatched kernels
-                device = device.replace('/dev/sd', '/dev/xvd')
-                if device not in devices:
-                    log.warn("Cannot find device %s for volume %s" %
-                             (device, vol_id))
-                    log.warn("Not mounting %s on %s" % (vol_id, mount_path))
-                    log.warn("This usually means there was a problem "
-                             "attaching the EBS volume to the master node")
-                    continue
+                # check for "correct" device in unpatched kernels and BACALHAU
+		if master.instance_type[1:2] == '5':
+			device = '/dev/nvme1n1'
+		else:
+                	device = device.replace('/dev/sd', '/dev/xvd')
+
+                	if device not in devices:
+                    		log.warn("Cannot find device %s for volume %s" %
+                             		(device, vol_id))
+                    		log.warn("Not mounting %s on %s" % (vol_id, mount_path))
+                    		log.warn("This usually means there was a problem "
+                             		 "attaching the EBS volume to the master node")
+                    		continue
             partitions = master.get_partition_map(device=device)
             if not volume_partition:
                 if len(partitions) == 0:
